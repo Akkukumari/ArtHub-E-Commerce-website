@@ -18,7 +18,7 @@ app.listen(process.env.port, async () => {
       console.log(`Connected to the db`);
       console.log(`Running at ${process.env.port} port`);
     }catch(err){
-        console.log({error:err});
+        console.log(err);
         console.log("Something went wrong");
     }
 })
