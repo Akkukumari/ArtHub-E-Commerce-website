@@ -1,0 +1,20 @@
+.homepage_body{
+    background-color: black;
+    border: 1px solid  black;
+    /* height: 100%; */
+    width: "fit-content";
+    margin: auto;
+    /* overflow-y: hidden; */
+}
+
+.homepage_image{
+    display: flex;
+    /* width: 100%; */
+    /* margin: auto; */
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    /* overflow-y: hidden; */
+
+}

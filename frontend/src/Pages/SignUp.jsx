@@ -1,29 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
 const SignUp = () => {
-
-
 const navigate=useNavigate()
-
-
-
-
-
-  
 const Loginpage=()=>{
     navigate("/login")
 }
 
-
-
-
   return (
     <div>
 <section class="vh-100 bg-image"
-style={{backgroundColor:  "black"}}
-  >
+style={{backgroundColor:  "black"}}>
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -80,12 +67,6 @@ style={{backgroundColor:  "black"}}
     </div>
   </div>
 </section>
-
-
-
-
-
-
     </div>
   )
 }
