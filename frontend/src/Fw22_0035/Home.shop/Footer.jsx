@@ -2,14 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
-  background-color: #f2f2f2;
+  background-color: black;
   padding: 20px;
   text-align: center;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const FooterText = styled.p`
-  color: #666;
-  font-size: 14px;
+  color: #fff; /* Set the text color to white */
+  font-size: 18px; /* Increase the font size */
   margin: 0;
 `;
 
@@ -18,6 +23,7 @@ const FooterLinksWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  margin-bottom: 10px;
 `;
 
 const FooterLink = styled.a`
@@ -28,6 +34,10 @@ const FooterLink = styled.a`
   &:hover {
     color: #00c6ff;
   }
+`;
+
+const StyledFooterLink = styled(FooterLink)`
+  color: white;
 `;
 
 const Footer = () => {
