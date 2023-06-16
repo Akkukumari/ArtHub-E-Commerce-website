@@ -1,7 +1,7 @@
 import react from "react";
 import { Link as RouterLink } from "react-router-dom";
 import "./Navbar.css";
-// import { BellIcon } from '@chakra-ui/icons';
+
 import {
   Box,
   Flex,
@@ -66,15 +66,24 @@ export default function Navbar() {
               <NavLink>Live</NavLink>
               <NavLink>Hire</NavLink>
               <NavLink>Jobs</NavLink>
-              <NavLink>SALE</NavLink>
+              <NavLink>Sale</NavLink>
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
             <Menu>
            <Menu className="icons">
-            <Button>SignIn </Button>
+
+           <BellIcon w={8} h={8} color="white" />
+           
+           <RouterLink to="/signup">
+            <Button>SignUp </Button>
+            </RouterLink>
+
+            <RouterLink to="/login">
               <Button> LogIn</Button>
-            <BellIcon w={8} h={8} color="white" />
+              </RouterLink>
+              
+           
             </Menu>
               <MenuButton
                 as={Button}
@@ -102,6 +111,7 @@ export default function Navbar() {
               <NavLink>Live</NavLink>
               <NavLink>Hire</NavLink>
               <NavLink>Jobs</NavLink>
+              <NavLink>Sale</NavLink>
             </Stack>
           </Box>
         ) : null}
