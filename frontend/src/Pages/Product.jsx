@@ -22,11 +22,12 @@ import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
 import { BsStar } from "react-icons/bs";
 import {FaRegCommentAlt} from "react-icons/fa";
+import {AiOutlineLike} from "react-icons/ai";
 
 const productDetail = {
   img: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/362ab4d7-6228-4d21-a4f5-215c1c6ce6b7/dfzuxvn-a7429e11-5079-48de-a1c8-c9552d9dbf32.png/v1/fill/w_900,h_900,q_80,strp/a_colorful_card_featuring_a_female_character_by_aiphotos123_dfzuxvn-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvMzYyYWI0ZDctNjIyOC00ZDIxLWE0ZjUtMjE1YzFjNmNlNmI3XC9kZnp1eHZuLWE3NDI5ZTExLTUwNzktNDhkZS1hMWM4LWM5NTUyZDlkYmYzMi5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.38aa_IMv0_SiwqYabydvuw-ZOI1-RjjhHOESG70aTDE",
   user: "aiphoto",
-  price: "1999",
+  price: "Rs1999 (20% OFF)",
   like: "200",
   comment: "10",
   views: "600",
@@ -65,7 +66,11 @@ export default function Product() {
           <Text className="add_to_favorite">Add To Favorite</Text>
           <FaRegCommentAlt className="comment"/>
           <Text >Comment</Text>
+          <AiOutlineLike className="comment"/>
+          <Text >Like</Text>
            </Box>
+           
+           <Text fontSize={'20px'}> {productDetail.price}</Text>
 
             <Stack
               spacing={{ base: 4, sm: 6 }}
@@ -150,63 +155,6 @@ export default function Product() {
                   {/* <Box w={'70%'} display={'flex'} margin={'auto'}>Creative Commons Attribution 3.0 License</Box> */}
                 </SimpleGrid>
               </Box>
-              {/* <Box>
-                <Text
-                  fontSize={{ base: "16px", lg: "18px" }}
-                  color={useColorModeValue("yellow.500", "yellow.300")}
-                  fontWeight={"500"}
-                  textTransform={"uppercase"}
-                  mb={"4"}
-                >
-                  Product Details
-                </Text>
-
-                <List spacing={2}>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Between lugs:
-                    </Text>{" "}
-                    20 mm
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Bracelet:
-                    </Text>{" "}
-                    leather strap
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Case:
-                    </Text>{" "}
-                    Steel
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Case diameter:
-                    </Text>{" "}
-                    42 mm
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Dial color:
-                    </Text>{" "}
-                    Black
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Crystal:
-                    </Text>{" "}
-                    Domed, scratch‑resistant sapphire crystal with
-                    anti‑reflective treatment inside
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Water resistance:
-                    </Text>{" "}
-                    5 bar (50 metres / 167 feet){" "}
-                  </ListItem>
-                </List>
-              </Box> */}
             </Stack>
 
             <Button display={'flex'} margin={'auto'}
