@@ -38,9 +38,9 @@ const Title = styled.h1`
 `;
 
 const SearchInput = styled.input`
-
-padding: 25px 300px;
-font-size: 16px;
+margin:10px 0px;
+padding: 5px 100px;
+font-size: 56px;
 `;
 
 const ButtonsWrapper = styled.div`
@@ -51,11 +51,11 @@ margin-left:10px
 
 const Button = styled.button`
 margin: 30px 10px;
-
+background-color:black;
 border-radius: 20%;
 padding: 15px 30px;
-background-color: transparent;
-color: black;
+
+color: white;
 transition: background-color 0.3s;
 cursor: pointer;
 &:hover {
