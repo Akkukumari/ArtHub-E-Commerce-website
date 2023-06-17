@@ -21,13 +21,24 @@
 .add_favorite{
     display: flex;
     margin: auto;
-    gap: 10px;
+    gap: 30px;
+    align-items: center;
     /* margin-left: 200px; */
 }
 
-.comment{
-    margin-left: 20px;
+.product_icons{
+    display: flex;
+    align-items: center;
+    gap:10px;
 }
+
+.product_icons p {
+    margin-bottom: 0pc !important;
+}
+
+/* .comment{
+    margin-left: 20px;
+} */
 /* .add_to_favorite{
 margin-left: -550px;
 } */
