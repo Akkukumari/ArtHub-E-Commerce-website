@@ -18,25 +18,21 @@ import {
   flexbox,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import { MdLocalShipping } from "react-icons/md";
 import { BsStar } from "react-icons/bs";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { AiOutlineLike } from "react-icons/ai";
 
-const productDetail = {
-  img: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/362ab4d7-6228-4d21-a4f5-215c1c6ce6b7/dfzuxvn-a7429e11-5079-48de-a1c8-c9552d9dbf32.png/v1/fill/w_900,h_900,q_80,strp/a_colorful_card_featuring_a_female_character_by_aiphotos123_dfzuxvn-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvMzYyYWI0ZDctNjIyOC00ZDIxLWE0ZjUtMjE1YzFjNmNlNmI3XC9kZnp1eHZuLWE3NDI5ZTExLTUwNzktNDhkZS1hMWM4LWM5NTUyZDlkYmYzMi5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.38aa_IMv0_SiwqYabydvuw-ZOI1-RjjhHOESG70aTDE",
-  user: "aiphoto",
-  price: "Rs1999 (20% OFF)",
-  like: "200",
-  comment: "10",
-  views: "600",
-};
-
 export default function Product() {
+  const location = useLocation();
+  const { data } = location.state;
+
   useEffect(() => {
-    localStorage.setItem("productDetails", JSON.stringify(productDetail));
+    localStorage.setItem("productDetails", JSON.stringify(data));
   }, []);
+
+  console.log("data", data);
 
   return (
     <div>
@@ -52,7 +48,7 @@ export default function Product() {
             <Image
               rounded={"md"}
               alt={"product image"}
-              src={productDetail.img}
+              src={data.img}
               fit={"cover"}
               align={"center"}
               w={"100%"}
@@ -60,22 +56,8 @@ export default function Product() {
             />
           </Flex>
           <Stack spacing={{ base: 6, md: 10 }}>
-            <Box className="add_favorite">
-              <div className="product_icons">
-                <BsStar />
-                <Text>Add To Favorite</Text>
-              </div>
-              <div className="product_icons">
-                <FaRegCommentAlt />
-                <Text>Comment</Text>
-              </div>
-              <div className="product_icons">
-                <AiOutlineLike />
-                <Text>Like</Text>
-              </div>
-            </Box>
-
-            <Text fontSize={"20px"}> {productDetail.price}</Text>
+          <div className="title">{data.title}</div>
+            <Text fontSize={"20px"}>Rs. {data.price}</Text>
 
             <Stack
               spacing={{ base: 4, sm: 6 }}
@@ -92,7 +74,7 @@ export default function Product() {
                   fontSize={"1xl"}
                   fontWeight={"700"}
                 >
-                  A colourful card featuring a female character by aiphotos.
+                  {data.desc}
                 </Text>
                 <Box display={"flex"} gap={"10px"}>
                   <Button>ai</Button>
@@ -109,9 +91,22 @@ export default function Product() {
                   <Button>das</Button>
                   <Button>cyan</Button>
                   <Button>sculptures</Button>
-                  <Button>sunil</Button>
                 </Box>
               </VStack>
+              <Box className="add_favorite">
+              <div className="product_icons">
+                <BsStar />
+                <Text>Add To Favorite</Text>
+              </div>
+              <div className="product_icons">
+                <FaRegCommentAlt />
+                <Text>Comment</Text>
+              </div>
+              <div className="product_icons">
+                <AiOutlineLike />
+                <Text>Like</Text>
+              </div>
+            </Box>
               <Box>
                 <Text
                   fontSize={{ base: "16px", lg: "18px" }}
@@ -158,9 +153,10 @@ export default function Product() {
               direction="row"
               alignItems="center"
               justifyContent={"center"}
+              className="shopping_icon"
             >
               <MdLocalShipping />
-              <Text>3-4 business days delivery</Text>
+              <div>3-4 business days delivery</div>
             </Stack>
           </Stack>
         </SimpleGrid>
