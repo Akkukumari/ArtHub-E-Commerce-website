@@ -16,5 +16,24 @@
     margin-bottom: 20px;
     margin-left: 25px;
     /* overflow-y: hidden; */
+}
 
+.add_favorite{
+    display: flex;
+    margin: auto;
+    gap: 10px;
+    /* margin-left: 200px; */
+}
+
+.comment{
+    margin-left: 20px;
+}
+/* .add_to_favorite{
+margin-left: -550px;
+} */
+
+.detail{
+    /* text-align: center; */
+    margin-left: 150px;
+    /* margin-right: 10px; */
 }

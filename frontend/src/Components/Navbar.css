@@ -6,11 +6,7 @@
 .css-70qvj9{
     display: flex;
     gap: 20px;
-    /* justify-content: space-between; */
-    /* border: 1px solid red; */
 }
-
-.navbarsearch_body{
-    background-color: gray;
-    border: 1px solid red;
+.notification{
+    font-weight: 450;
 }

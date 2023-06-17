@@ -18,11 +18,20 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, BellIcon } from "@chakra-ui/icons";
 
 const NavLink = ({ children }) => (
-  <Link className="navbar_link"
+  <Link
+    className="navbar_link"
     px={2}
     py={1}
     rounded={"md"}
@@ -61,7 +70,9 @@ export default function Navbar() {
               display={{ base: "none", md: "flex" }}
             >
               <NavLink>For You</NavLink>
-              <NavLink>Shop</NavLink>
+              <RouterLink to="/shopnow">
+                <NavLink>Shop</NavLink>
+              </RouterLink>
               <NavLink>Discover</NavLink>
               <NavLink>Live</NavLink>
               <NavLink>Hire</NavLink>
@@ -71,20 +82,40 @@ export default function Navbar() {
           </HStack>
           <Flex alignItems={"center"}>
             <Menu>
-           <Menu className="icons">
+              <Menu className="icons">
+                <Popover>
+                  <PopoverTrigger>
+                    {/* <Button>Trigger</Button> */}
+                    <BellIcon
+                      w={8}
+                      h={8}
+                      color="white"
+                    />
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverHeader> Your Notification </PopoverHeader>
+                    <PopoverCloseButton />
+                    <h6 className="notification">
+                  New Notification on ArtHub
+                  <p>Sell your digital assets to the world’s <br></br>
+                    largest creative community. Attach <br></br>
+                     downloadable files directly to any <br></br>
+                      Behance project, and set your own prices<br></br>
+                       to earn money creating what you love.</p>
+                    </h6>
+                    <PopoverFooter>Sell your assests on ArtHub</PopoverFooter>
+                  </PopoverContent>
+                </Popover>
 
-           <BellIcon w={8} h={8} color="white" />
-           
-           <RouterLink to="/signup">
-            <Button>SignUp </Button>
-            </RouterLink>
+                <RouterLink to="/signup">
+                  <Button>SignUp </Button>
+                </RouterLink>
 
-            <RouterLink to="/login">
-              <Button> LogIn</Button>
-              </RouterLink>
-              
-           
-            </Menu>
+                <RouterLink to="/login">
+                  <Button> LogIn</Button>
+                </RouterLink>
+              </Menu>
               <MenuButton
                 as={Button}
                 rounded={"full"}
