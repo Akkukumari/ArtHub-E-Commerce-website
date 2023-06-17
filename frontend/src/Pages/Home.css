@@ -1,39 +1,64 @@
-.homepage_body{
-    background-color: black;
-    border: 1px solid  black;
-    /* height: 100%; */
-    width: "fit-content";
-    margin: auto;
-    /* overflow-y: hidden; */
+.homepage_body {
+  background-color: black;
+  /* border: 1px solid  black; */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* border: 1px solid  red; */
+  /* gap: 10px; */
+  justify-content: space-around;
+
+  margin: auto;
+  /* overflow-y: hidden; */
+}
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: black;
 }
 
-.homepage_image{
-    display: flex;
-    /* width: 100%; */
-    /* margin: auto; */
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 25px;
-    /* overflow-y: hidden; */
+.image-item {
+  width: 19.3%;
+  height: 200px;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
-.add_favorite{
-    display: flex;
-    margin: auto;
-    gap: 30px;
-    align-items: center;
-    /* margin-left: 200px; */
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.product_icons{
-    display: flex;
-    align-items: center;
-    gap:10px;
+.homepage_image {
+  /* display: flex; */
+  /* width: 100%; */
+  /* margin: auto; */
+  /* height: 300px; */
+  aspect-ratio: auto;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 25px;
+  /* overflow-y: hidden; */
+}
+
+.add_favorite {
+  display: flex;
+  margin: auto;
+  gap: 30px;
+  align-items: center;
+  /* margin-left: 200px; */
+}
+
+.product_icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .product_icons p {
-    margin-bottom: 0pc !important;
+  margin-bottom: 0pc !important;
 }
 
 /* .comment{
@@ -43,8 +68,30 @@
 margin-left: -550px;
 } */
 
-.detail{
-    /* text-align: center; */
-    margin-left: 150px;
-    /* margin-right: 10px; */
+.detail {
+  /* text-align: center; */
+  margin-left: 150px;
+  /* margin-right: 10px; */
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+
+.css-1mg40jh {
+    gap: 0px !important;
+  }
+
+@media screen and (min-width: 48em) {
+  .css-1mg40jh {
+    gap: 0px !important;
+  }
+}
+
+.shopping_icon {
+    margin: 20px;
+    display: flex;
+    align-items: center;
 }

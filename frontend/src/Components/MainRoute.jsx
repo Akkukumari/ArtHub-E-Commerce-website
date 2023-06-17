@@ -14,7 +14,7 @@ export default function  MainRoute () {
       <Route path="/" element={<Homepage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/SignUp" element={<SignUp />} />
-      <Route path="/product" element={<Product />} />
+      <Route path="/product/:id" element={<Product />} />
       <Route path="/shopnow" element={<ShopHomepage />}  />
       <Route path="/checkout" element={<CheckoutPage />} />
     </Routes>
