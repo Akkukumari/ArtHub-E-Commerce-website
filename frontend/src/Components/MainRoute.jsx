@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import  Homepage  from "../Pages/Homepage";
 import  Login from "../Pages/Login";
-
 import SignUp from "../Pages/SignUp";
 import Product from "../Pages/Product";
 import ShopHomepage from "../Pages/Shop.home/ShopHomePage";

@@ -20,6 +20,7 @@
 .image-item {
   width: 19.3%;
   height: 200px;
+  margin-top: 15px;
   margin-bottom: 20px;
   overflow: hidden;
 }
@@ -95,3 +96,7 @@ margin-left: -550px;
     display: flex;
     align-items: center;
 }
+
+/* .payment-time{
+
+} */
