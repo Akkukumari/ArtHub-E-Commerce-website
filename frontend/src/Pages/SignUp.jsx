@@ -1,10 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
+
+const [name,setName]=useState("")
+const [email,setEmail]=useState("")
+const [pass,setPass]=useState("")
+const [pass2,setPass2]=useState("")
+
+
+
+
+const handleSubmit=()=>{
+  const payload={
+    name,email,pass,pass2
+  }
+  //console.log(payload)
+  //we are connectiong FE to BE
+  fetch("http://localhost:8800/users/register",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(payload)
+  }).then(res=>res.json())
+  .then(res=>console.log(res))
+  .catch(err=>console.log(err))
+  
+  
+  setName("")
+  setEmail("")
+  setPass("")
+  setPass2("")
+
+}
+
+
+
+
+
 const navigate=useNavigate()
 const Loginpage=()=>{
     navigate("/login")
+
+
+
+
 }
 
   return (
@@ -23,23 +64,49 @@ style={{backgroundColor:  "black"}}>
 
               <form>
 
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                <div 
+                >
+                  <input type="text" 
+                  name="username"
+                  value={name}
+                  onChange={(e)=>setName(e.target.value)}
+
+                  id="form3Example1cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">Your Name</label>
                 </div>
 
-                <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                <div >
+                  <input type="email" 
+                   name="email"
+                   value={email}
+                   onChange={(e)=>setEmail(e.target.value)}
+                  
+                  id="form3Example3cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example3cg">Your Email</label>
                 </div>
 
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                <div 
+                // class="form-outline mb-4"
+                >
+                  <input type="password" 
+                   name="pass"
+                   value={pass}
+                   onChange={(e)=>setPass(e.target.value)}
+
+                  
+                  id="form3Example4cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cg">Password</label>
                 </div>
 
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                <div>
+                  <input type="password" 
+                   value={pass2}
+                   onChange={(e)=>setPass2(e.target.value)}
+                  
+                  
+                  
+                  
+                  id="form3Example4cdg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cdg">Repeat your password</label>
                 </div>
 
@@ -52,7 +119,11 @@ style={{backgroundColor:  "black"}}>
 
                 <div class="d-flex justify-content-center">
                   <button type="button"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    
+                    onClick={handleSubmit}
+                    
+                    >Register</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"

@@ -1,6 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Login = () => {
+
+
+
+  const [email,setEmail]=useState("")
+  const [pass,setPass]=useState("")
+
+
+
+
+
+
+
+  const handleSubmit=()=>{
+    const payload={
+    email,pass
+    }
+  console.log("login",payload)
+    //we are connectiong FE to BE
+    fetch("http://localhost:8800/users/login",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(payload)
+    }).then(res=>res.json())
+    .then((res)=>{
+      console.log(res)
+    localStorage.setItem("token",res.token)
+    
+    })
+    .catch(err=>console.log(err))
+    
+    
+ 
+    setEmail("")
+    setPass("")
+   
+  
+  }
+
+
+
+
+
+
+
+
+
   return (
     <div>
 
@@ -17,13 +65,27 @@ style={{backgroundColor: "black"}}
 
             <h3 class="mb-5">Sign in</h3>
 
-            <div class="form-outline mb-4">
-              <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
+            <div 
+            // class="form-outline mb-4"
+            >
+              <input type="email" 
+               name="email"
+               value={email}
+               onChange={(e)=>setEmail(e.target.value)}
+              
+              id="typeEmailX-2" class="form-control form-control-lg" />
               <label class="form-label" for="typeEmailX-2">Email</label>
             </div>
 
-            <div class="form-outline mb-4">
-              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+            <div>
+              <input type="password" 
+                  name="pass"
+                  value={pass}
+                  onChange={(e)=>setPass(e.target.value)}
+              
+              
+              
+              id="typePasswordX-2" class="form-control form-control-lg" />
               <label class="form-label" for="typePasswordX-2">Password</label>
             </div>
 
@@ -33,7 +95,9 @@ style={{backgroundColor: "black"}}
               <label class="form-check-label" for="form1Example3"> Remember password </label>
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit"
+            onClick={handleSubmit}
+            >Login</button>
 
             {/* <hr class="my-4"> */}
 
