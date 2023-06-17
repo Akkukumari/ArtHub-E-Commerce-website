@@ -5,7 +5,8 @@ const postSchema = mongoose.Schema({
    img: String,
    desc: String,
    price: Number,
-   discount:Number
+   discount:Number,
+   category: String,
 },{
     versionKey: false
 });
