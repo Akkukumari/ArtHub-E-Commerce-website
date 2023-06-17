@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Heading, Stack, FormControl, FormLabel, Input, Button, Text, Image } from '@chakra-ui/react';
+import { Box, Heading, Stack, FormControl, FormLabel, Input, Button, Text, Image, Spinner } from '@chakra-ui/react';
 import { FaCreditCard } from 'react-icons/fa';
 
 const CheckoutPage = () => {
@@ -10,6 +10,16 @@ const CheckoutPage = () => {
   const [cardExpiry, setCardExpiry] = useState('');
   const [cardCVC, setCardCVC] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
+  const [paymentDone, setPaymentDone] = useState(false);
+  const [processingPayment, setProcessingPayment] = useState(false);
+
+  useEffect(() => {
+    const productDetail = localStorage.getItem('productDetails');
+    if (productDetail) {
+      const { img, price, user } = JSON.parse(productDetail);
+      setSelectedImage({ url: img, price, user });
+    }
+  }, []);
 
   const handleCityChange = (e) => {
     setCity(e.target.value);
@@ -36,14 +46,24 @@ const CheckoutPage = () => {
   };
 
   const handleCheckout = () => {
-    // Save the address in local storage
-    localStorage.setItem('city', city);
-    localStorage.setItem('country', country);
-    localStorage.setItem('zip', zip);
+    // Simulate payment processing
+    setProcessingPayment(true);
+    alert("wait for some time to done the payment")
+    setTimeout(() => {
+      // Assuming payment is successful
+      setPaymentDone(true);
+      setProcessingPayment(false);
+
+      // Save the address in local storage
+      localStorage.setItem('city', city);
+      localStorage.setItem('country', country);
+      localStorage.setItem('zip', zip);
+    }, 1000);
+
   };
 
   const handleDownload = () => {
-    if (selectedImage) {
+    if (paymentDone && selectedImage) {
       fetch(selectedImage.url)
         .then((response) => response.blob())
         .then((blob) => {
@@ -51,22 +71,28 @@ const CheckoutPage = () => {
           const downloadLink = document.createElement('a');
           downloadLink.href = URL.createObjectURL(blob);
           downloadLink.download = selectedImage.name;
-
+  
           // Simulate a click event to trigger the download
           downloadLink.click();
-
+  
           // Clean up the temporary download link
           URL.revokeObjectURL(downloadLink.href);
+          
+          // Remove the image from local storage
+          localStorage.removeItem('productDetails');
+  
           setSelectedImage(null);
         })
         .catch((error) => {
           console.error('Error downloading the image:', error);
         });
+    } else if (!paymentDone) {
+      alert('Payment must be completed before downloading.');
     } else {
       alert('An image must be selected before downloading.');
     }
   };
-
+  
   return (
     <Box display="flex">
       <Box width="50%" mr={8}>
@@ -113,6 +139,9 @@ const CheckoutPage = () => {
           <Button onClick={handleCheckout} colorScheme="blue">
             Proceed to Payment
           </Button>
+          {processingPayment && (
+            <Spinner size="sm" color="blue.500" thickness="2px" mt={2} />
+          )}
         </Stack>
       </Box>
       <Box width="50%">
@@ -122,14 +151,21 @@ const CheckoutPage = () => {
         {selectedImage ? (
           <>
             <Image src={selectedImage.url} alt={selectedImage.name} maxH="400px" mb={4} />
-            <Text>Name: {selectedImage.name}</Text>
+            <Text>Name: {selectedImage.user}</Text>
             <Text>Price: {selectedImage.price}</Text>
-            <Button onClick={handleDownload} mt={4}>
-              Download
-            </Button>
+            {paymentDone ? (
+              <>
+                <Text mt={4}>Payment is done.</Text>
+                <Button onClick={handleDownload} mt={4}>
+                  Download
+                </Button>
+              </>
+            ) : (
+              <Text>Once payment is done then you can download the image</Text>
+            )}
           </>
         ) : (
-          <Text>No image selected.</Text>
+          <Text>No image Selected</Text>
         )}
       </Box>
     </Box>
