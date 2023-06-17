@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Link as RouterLink } from "react-router-dom";
+import Header from "../Components/Header";
 
 export default function Homepage() {
   const [arts, setArts] = useState([]);
@@ -23,6 +24,7 @@ export default function Homepage() {
   return (
   
     <div >
+  <Header/>
       <div className="image-grid">
       {arts.map((el) => (
         <div className="image-item" key={el._id}>

@@ -17,14 +17,32 @@ import {
   ListItem,
   flexbox,
 } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { MdLocalShipping } from "react-icons/md";
 import { BsStar } from "react-icons/bs";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { AiOutlineLike } from "react-icons/ai";
+import Footer from "./Shop.home/Footer";
+import Header from "../Components/Header";
 
 export default function Product() {
+
+  const [arts, setArts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8800/posts", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => setArts(res))
+      .catch((err) => console.log(err));
+  }, []);
+
   const location = useLocation();
   const { data } = location.state;
 
@@ -56,7 +74,7 @@ export default function Product() {
             />
           </Flex>
           <Stack spacing={{ base: 6, md: 10 }}>
-          <div className="title">{data.title}</div>
+          <div className="title">{data.title} by {data.user}</div>
             <Text fontSize={"20px"}>Rs. {data.price}</Text>
 
             <Stack
@@ -156,11 +174,26 @@ export default function Product() {
               className="shopping_icon"
             >
               <MdLocalShipping />
-              <div>3-4 business days delivery</div>
+              <div >3-4 business days delivery</div>
             </Stack>
           </Stack>
         </SimpleGrid>
       </Container>
+
+      <Header/>
+
+      <div className="image-grid">
+      {arts.map((el) => (
+        <div className="image-item" key={el._id}>
+          <RouterLink  to={`/product/${el._id}`} state={{ data: el }}>
+         <img src={el.img} alt={el.img} />
+          </RouterLink>
+        </div>
+      ))}
+    </div>
+
+    <Footer />
+
     </div>
   );
 }

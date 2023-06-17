@@ -10,3 +10,12 @@
 .notification{
     font-weight: 450;
 }
+
+.header{
+    background-color:teal;
+    color: white;
+    height: 50px;
+    padding-top: 10px;
+    /* margin-bottom: 5px;
+    margin-top: 5px; */
+}
