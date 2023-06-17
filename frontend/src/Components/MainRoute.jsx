@@ -3,6 +3,9 @@ import  Homepage  from "../Pages/Homepage";
 import  Login from "../Pages/Login";
 
 import SignUp from "../Pages/SignUp";
+import Product from "../Pages/Product";
+import ShopHomepage from "../Pages/Shop.home/ShopHomePage";
+import CheckoutPage from "../Pages/Checkout";
 
 
 export default function  MainRoute () {
@@ -11,7 +14,9 @@ export default function  MainRoute () {
       <Route path="/" element={<Homepage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/SignUp" element={<SignUp />} />
-
+      <Route path="/product" element={<Product />} />
+      <Route path="/shop" element={<ShopHomepage />}  />
+      <Route path="/checkout" element={<CheckoutPage />} />
     </Routes>
   );
 };
