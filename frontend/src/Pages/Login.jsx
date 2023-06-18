@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import "./SignUp.css";
 
 const Login = () => {
 
@@ -47,36 +48,16 @@ const navigate=useNavigate()
       alert("wrong credentials")
     });
 
-
-  
-       
-
-
-
-
-
-
-
-
-
-
     
 setEmail("")
     setPassword("")
   }
 
 
-
-
-
-
-
-
   return (
     <div>
 
-<section class="vh-70" 
-style={{backgroundColor: "grey"}}
+<section class="vh-70" className='login-background'
 >
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -86,7 +67,7 @@ style={{backgroundColor: "grey"}}
         >
           <div class="card-body p-5 text-center">
 
-            <h3 class="mb-5">Sign in</h3>
+            <h3 class="mb-5">Log in</h3>
 
             <div 
             // class="form-outline mb-4"
