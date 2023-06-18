@@ -1,19 +1,21 @@
+
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import "./SignUp.css"
 
 const SignUp = () => {
 
 const [name,setName]=useState("")
 const [email,setEmail]=useState("")
-const [pass,setPass]=useState("")
-const [pass2,setPass2]=useState("")
+const [password,setPassword]=useState("")
+// const [pass2,setPass2]=useState("")
 
 
 
 
 const handleSubmit=()=>{
   const payload={
-    name,email,pass,pass2
+    name,email,password
   }
   //console.log(payload)
   //we are connectiong FE to BE
@@ -30,8 +32,8 @@ const handleSubmit=()=>{
   
   setName("")
   setEmail("")
-  setPass("")
-  setPass2("")
+  setPassword("")
+ 
 
 }
 
@@ -50,9 +52,25 @@ const Loginpage=()=>{
 
   return (
     <div>
-<section class="vh-100 bg-image"
-style={{backgroundColor:  "black"}}>
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+<section class="vh-100 bg-image "
+style={{backgroundColor: "grey"}}
+>
+  
+
+
+
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3"
+  
+ 
+  
+  
+  
+  >
+
+
+
+
+
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
@@ -90,15 +108,15 @@ style={{backgroundColor:  "black"}}>
                 >
                   <input type="password" 
                    name="pass"
-                   value={pass}
-                   onChange={(e)=>setPass(e.target.value)}
+                   value={password}
+                   onChange={(e)=>setPassword(e.target.value)}
 
                   
                   id="form3Example4cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cg">Password</label>
                 </div>
 
-                <div>
+                {/* <div>
                   <input type="password" 
                    value={pass2}
                    onChange={(e)=>setPass2(e.target.value)}
@@ -108,7 +126,10 @@ style={{backgroundColor:  "black"}}>
                   
                   id="form3Example4cdg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cdg">Repeat your password</label>
-                </div>
+                </div> */}
+
+
+
 
                 <div class="form-check d-flex justify-content-center mb-5">
                   <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
@@ -119,7 +140,7 @@ style={{backgroundColor:  "black"}}>
 
                 <div class="d-flex justify-content-center">
                   <button type="button"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    class="btn btn-primary btn-lg btn-block"
                     
                     onClick={handleSubmit}
                     
