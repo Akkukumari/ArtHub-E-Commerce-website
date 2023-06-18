@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Link as RouterLink } from "react-router-dom";
 import Header from "../Components/Header";
+import Footer from "./Shop.home/Footer";
 
 export default function Homepage() {
   const [arts, setArts] = useState([]);
@@ -34,6 +35,8 @@ export default function Homepage() {
         </div>
       ))}
     </div>
+    
+    <Footer/>
      
     </div>
   );

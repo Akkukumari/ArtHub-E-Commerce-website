@@ -82,8 +82,8 @@ margin-left: -550px;
 }
 
 .css-1mg40jh {
-    gap: 0px !important;
-  }
+  gap: 0px !important;
+}
 
 @media screen and (min-width: 48em) {
   .css-1mg40jh {
@@ -92,11 +92,32 @@ margin-left: -550px;
 }
 
 .shopping_icon {
-    margin: 20px;
-    display: flex;
-    align-items: center;
+  margin: 20px;
+  display: flex;
+  align-items: center;
 }
 
-/* .payment-time{
+.checkout-detail {
+  display: flex;
+  background-color: black;
+  margin: auto;
+  color: white;
+  height: 100vh;
+  gap:0px;
+  justify-content: center;
+  align-items: center;
+}
 
-} */
+.chekout-under {
+  background-color: white;
+  color: black;
+  margin: 30px 0px !important;
+  margin-right: 0px !important;
+  padding: 30px;
+  height: 70vh;
+}
+
+.checkout-detail img {
+  margin: auto;
+  width: 250px;
+}

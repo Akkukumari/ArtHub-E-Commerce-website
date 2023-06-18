@@ -1,3 +1,15 @@
+.login-background{
+     background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCCVLgBhM28nCTQELA4m8N8BQLtJ6GxcL2ZQ&usqp=CAU") no-repeat ;
+     height: 100vh;
+     background-size: cover;
+}
 
+/* .signup-background{
+    background-color: black;
+} */
 
-
+.signup-background{
+    background: url("https://preview.redd.it/8fhc263msei41.jpg?width=1224&format=pjpg&auto=webp&s=1e3a16a4d56af2e91dc23f33e854f6dc64a8190b") no-repeat ;
+    height: 100vh;
+    background-size: cover;
+}

@@ -60,6 +60,7 @@ const MobileApps = styled.div`
 
 const MobileAppImage = styled.img`
   height: 40px;
+  margin-left:100px;
 `;
 
 const Bottom = styled.div`
@@ -71,10 +72,12 @@ const Bottom = styled.div`
 
 const Copy = styled.p`
   margin: 0;
+  margin-left:20px;
 `;
 
 const Address = styled.p`
   font-size: 12px;
+  margin-right:20px
 `;
 
 function Footer() {
@@ -123,9 +126,9 @@ function Footer() {
           </MobileApps>
         </UsefulLinksColumn>
       </Container>
-      <Bottom>
-        <Copy>&copy; 2023 www.Arthub.com. All rights reserved.</Copy>
-        <Address>Registered Office Address</Address>
+      <Bottom >
+        <Copy >&copy; 2023 www.Arthub.com. All rights reserved.</Copy>
+        <Address >Registered Office Address</Address>
       </Bottom>
     </FooterContainer>
   );
