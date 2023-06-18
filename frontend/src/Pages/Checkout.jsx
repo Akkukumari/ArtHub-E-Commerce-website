@@ -94,7 +94,8 @@ const CheckoutPage = () => {
   };
   
   return (
-    <Box display="flex">
+    <Box display="flex"
+     >
       <Box width="50%" mr={8}>
         <Heading as="h1" size="lg" mb={4}>
           Checkout

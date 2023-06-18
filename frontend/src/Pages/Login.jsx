@@ -1,46 +1,69 @@
 import React, { useState } from 'react'
+import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
-
+const navigate=useNavigate()
 
   const [email,setEmail]=useState("")
-  const [pass,setPass]=useState("")
-
-
-
-
-
-
+  const [password,setPassword]=useState("")
 
   const handleSubmit=()=>{
     const payload={
-    email,pass
+    email,password
     }
   console.log("login",payload)
     //we are connectiong FE to BE
-    fetch("http://localhost:8800/users/login",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify(payload)
-    }).then(res=>res.json())
-    .then((res)=>{
-      console.log(res)
-    localStorage.setItem("token",res.token)
-    
-    })
-    .catch(err=>console.log(err))
-    
-    
- 
-    setEmail("")
-    setPass("")
-   
-  
-  }
+    // fetch("http://localhost:8800/users/login",{
+    //   method:"POST",
+    //   headers:{
+    //     "Content-Type":"application/json"
+    //   },
+    //   body:JSON.stringify(payload)
+    // }).then(res=>res.json())
+    // .then((res)=>{
+    //   console.log(res)
+    // localStorage.setItem("token",res.token)
+    // })
+    // .catch(err=>console.log(err))
 
+
+
+    axios.post("http://localhost:8800/users/login", payload).then((res) => {
+      console.log("res",res);
+      localStorage.setItem("token", res.data.token)
+      
+      if(localStorage.getItem("token")){
+        navigate('/')
+      }
+    
+
+
+
+
+    })
+    .catch((err) =>{
+      alert("wrong credentials")
+    });
+
+
+  
+       
+
+
+
+
+
+
+
+
+
+
+    
+setEmail("")
+    setPassword("")
+  }
 
 
 
@@ -53,7 +76,7 @@ const Login = () => {
     <div>
 
 <section class="vh-70" 
-style={{backgroundColor: "black"}}
+style={{backgroundColor: "grey"}}
 >
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -80,8 +103,8 @@ style={{backgroundColor: "black"}}
             <div>
               <input type="password" 
                   name="pass"
-                  value={pass}
-                  onChange={(e)=>setPass(e.target.value)}
+                  value={password}
+                  onChange={(e)=>setPassword(e.target.value)}
               
               
               
