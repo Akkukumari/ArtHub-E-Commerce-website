@@ -12,6 +12,7 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import { FaCreditCard } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutPage = () => {
   const [city, setCity] = useState("");
@@ -23,7 +24,7 @@ const CheckoutPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [paymentDone, setPaymentDone] = useState(false);
   const [processingPayment, setProcessingPayment] = useState(false);
-
+const navigate=useNavigate()
   useEffect(() => {
     const productDetail = localStorage.getItem("productDetails");
     if (productDetail) {
@@ -92,6 +93,7 @@ const CheckoutPage = () => {
           localStorage.removeItem("productDetails");
 
           setSelectedImage(null);
+          navigate("/")
         })
         .catch((error) => {
           console.error("Error downloading the image:", error);
