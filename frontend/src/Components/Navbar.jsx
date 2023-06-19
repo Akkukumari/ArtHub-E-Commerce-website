@@ -69,7 +69,10 @@ export default function Navbar() {
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              <NavLink>For You</NavLink>
+               <RouterLink to="/">
+               <NavLink>Home</NavLink>
+              </RouterLink>
+              
               <RouterLink to="/shopnow">
                 <NavLink>Shop</NavLink>
               </RouterLink>
